@@ -41,9 +41,11 @@
             <h2>Sản phẩm nổi bật</h2>
             <div class="product-list">
                 <?php
-                $url = 'http://localhost/shopgiay/html/images';
+               // Truy vấn danh sách sản phẩm từ bảng `sanpham`
+                $sql = "SELECT id, name, price, avatar image FROM product_";
+                $result = $conn->query($sql); 
                 require 'db.php';
-                $sql = "select * from products limit 4";
+               
                 $result = mysqli_query($connect, $sql);
 
                 foreach ($result as $product) {
@@ -69,7 +71,8 @@
         </div>
     </section>
 
-  <?php require('footer.php') ?>
-
+  
+    <?php require('footer.php') ?>
 </body>
+<?php require('footer.php') ?>
 </html>

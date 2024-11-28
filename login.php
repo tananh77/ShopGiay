@@ -69,22 +69,7 @@ $conn->close();
 </head>
 <body>
     <!-- Header -->
-    <header>
-        <img class="img" src="../img/logo.jpg" alt="" style="width: 80px;">
-        <nav>
-            <a href="demo.php">Trang chủ</a>
-            <a href="#">Sản phẩm</a>
-            <a href="#">Liên hệ</a>
-        </nav>
-        <div class="header-icons">
-            <input type="text" placeholder="Tìm kiếm...">
-            <button><i class="fa fa-search"></i></button>
-            <i class="fa fa-user"></i>
-            <i class="fa fa-heart"></i>
-            <i class="fa fa-shopping-cart"></i>
-        </div>
-    </header>
-
+    <?php require('header.php') ?>
     <!-- Login Form -->
     <div class="register-container">
         <form class="register-form" method="POST" action="">
@@ -97,15 +82,6 @@ $conn->close();
     </div>
 
     <!-- Footer -->
-    <footer>
-        <div class="footer-content">
-            <img src="/img/bando.jpg" alt="Map" class="map-image">
-            <div class="contact-info">
-                <p>Địa chỉ: 170 An Dương Vương/ Nguyễn Văn Cừ/Quy Nhơn/Bình Định</p>
-                <p>Email: Familyshop@gmail.com.vn</p>
-                <p>FaceBook: ShopFamily</p>
-            </div>
-        </div>
-    </footer>
+    <?php require('footer.php') ?>
 </body>
 </html>

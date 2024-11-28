@@ -1,8 +1,9 @@
 <!-- Header -->
+ <link rel="stylesheet" href="style.css">
 <header>
     <div class="header-container">
         <div class="logo">
-            <a href="#"><img src="images/2.jpg" alt="Logo" /></a>
+            <a href="#"><img src="img/logo.jpg" alt="Logo" /></a>
         </div>
         <nav class="menu">
             <ul>
@@ -21,3 +22,6 @@
         </div>
     </div>
 </header>
+<style>
+    
+</style>

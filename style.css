@@ -245,7 +245,7 @@ header {
 }
 
 /* Footer */
-footer {
+footer {    
     background-color: var(--secondary-color);
     color: var(--text-light);
     padding: 10px;
@@ -253,6 +253,11 @@ footer {
     margin-top: 20px;
 }
 
+.footer-map img{
+    width: 80px;
+    height: auto;
+    margin-right: 15px;
+}
 /* Hiệu ứng */
 @keyframes fadeIn {
     from {
