@@ -1,0 +1,133 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
+}
+
+.header {
+    background-color: #fff;
+    padding: 20px;
+    display: flex;
+    justify-content: space-between;
+    align-items: center;
+    border-bottom: 1px solid #ddd;
+}
+
+.header .logo {
+    font-size: 24px;
+    font-weight: bold;
+    color: #333;
+}
+
+.header .cart {
+    font-size: 18px;
+    color: #333;
+}
+
+.breadcrumb {
+    padding: 15px;
+    background-color: #fff;
+    margin: 20px 0;
+    border-bottom: 1px solid #ddd;
+}
+
+.breadcrumb a {
+    color: #007bff;
+    text-decoration: none;
+}
+
+.breadcrumb span {
+    margin: 0 5px;
+    color: #555;
+}
+
+.container {
+    max-width: 1200px;
+    margin: auto;
+    background-color: #fff;
+    padding: 20px;
+    box-shadow: 0 2px 4px rgba(0, 0, 0, 0.1);
+}
+
+.steps {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+
+.steps div {
+    text-align: center;
+    width: 30%;
+    font-size: 16px;
+}
+
+.steps div span {
+    display: block;
+    margin-top: 10px;
+    color: #555;
+}
+
+.steps div.active {
+    color: #007bff;
+}
+
+.table {
+    width: 100%;
+    border-collapse: collapse;
+    margin-top: 20px;
+}
+
+.table th, .table td {
+    padding: 15px;
+    text-align: left;
+    border: 1px solid #ddd;
+}
+
+.table th {
+    background-color: #f8f9fa;
+}
+
+.table img {
+    width: 50px;
+    height: auto;
+}
+
+.table .delete {
+    color: red;
+    cursor: pointer;
+}
+
+.summary {
+    text-align: right;
+    margin-top: 20px;
+}
+
+.summary p {
+    font-size: 18px;
+    margin: 5px 0;
+}
+
+.buttons {
+    display: flex;
+    justify-content: space-between;
+    margin-top: 20px;
+}
+
+.buttons button {
+    padding: 10px 20px;
+    font-size: 16px;
+    border: none;
+    cursor: pointer;
+    border-radius: 5px;
+}
+
+.buttons .continue {
+    background-color: #007bff;
+    color: #fff;
+}
+
+.buttons .checkout {
+    background-color: #333;
+    color: #fff;
+}
