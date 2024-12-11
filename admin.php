@@ -63,7 +63,39 @@ $conn->close();
     <link rel="stylesheet" href="https://cdnjs.cloudflare.com/ajax/libs/font-awesome/6.0.0-beta3/css/all.min.css">
 </head>
 <body>
-    <h1>Quản lý Sản phẩm</h1>
+    
+<style>  
+ ul.navbar {
+            list-style-type: none;
+            padding: 0;
+            margin: 0;
+            background-color: #333;
+        }
+
+        ul.navbar li {
+            display: inline-block;
+        }
+
+        ul.navbar li a {
+            display: block;
+            padding: 10px 20px;
+            color: white;
+            text-decoration: none;
+            background-color: #333;
+        }
+
+        ul.navbar li a:hover {
+            background-color: #4CAF50; /* Màu nền khi hover */
+        }
+
+        h1 {
+            text-align: center;
+            margin-top: 20px;
+        }</style>
+<ul class="navbar">
+        <li><a href="admin_dashboard.php">Quản lý khách hàng</a></li>
+        <li><a href="#">Quản lý sản phẩm</a></li>
+    </ul>
 
     <!-- Form thêm và sửa sản phẩm -->
     <form action="admin.php" method="post" enctype="multipart/form-data" class="product-form">
