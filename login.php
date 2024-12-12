@@ -39,6 +39,7 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") { // Kiểm tra xem yêu cầu là t�
         // Kiểm tra mật khẩu bằng phép so sánh trực tiếp
         if ($password == $row['password']) { // So sánh trực tiếp nếu mật khẩu không mã hóa
             $_SESSION['email'] = $email; // Lưu email vào session để giữ trạng thái đăng nhập
+            $_SESSION['user_name'] = $row['user_name'];
             header("Location: index.php"); // Chuyển hướng đến trang chủ sau khi đăng nhập thành công
         } else {
             header ("Location: index.php");;  // Chuyển hướng đến trang chủ sau khi đăng nhập thành công

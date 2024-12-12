@@ -1,13 +1,14 @@
+<?php session_start(); ?>
 <?php
+require 'db.php';
 
 $id = $_GET['id'];
-require 'db.php';
 $sql = "select * from products where id=$id";
-$result = mysqli_query($connect, $sql);
+$result = mysqli_query($conn, $sql);
 $each = mysqli_fetch_array($result);
 
 $sql = "select url from product_images where product_id=$id limit 4";
-$images = mysqli_query($connect, $sql);
+$images = mysqli_query($conn, $sql);
 
 ?>
 
@@ -244,7 +245,7 @@ $images = mysqli_query($connect, $sql);
                 $url = 'http://localhost/shopgiay/html/images';
                 require 'db.php';
                 $sql = "select * from products limit 3";
-                $result = mysqli_query($connect, $sql);
+                $result = mysqli_query($conn, $sql);
 
                 foreach ($result as $product) {
                     echo '<div class="product-item">';
@@ -258,6 +259,9 @@ $images = mysqli_query($connect, $sql);
             </div>
         </div>
     </section>
+
+    <?php require ('cmt.php'); ?>
+
     <?php require('footer.php'); ?>
     <script>
   
@@ -284,5 +288,7 @@ $images = mysqli_query($connect, $sql);
 </script>
     
 </body>
+
+
 
 </html>

@@ -151,7 +151,7 @@
 
                 // Truy vấn dữ liệu sản phẩm
                 $sql = "SELECT * FROM products ORDER BY $sort_column $sort_order LIMIT $limit OFFSET $offset";
-                $result = mysqli_query($connect, $sql);
+                $result = mysqli_query($conn, $sql);
 
                 // Hiển thị sản phẩm
                 foreach ($result as $product) {
