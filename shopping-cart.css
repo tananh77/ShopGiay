@@ -1,0 +1,116 @@
+body {
+    font-family: Arial, sans-serif;
+    margin: 0;
+    padding: 0;
+    background-color: #f5f5f5;
+}
+.container {
+    width: 80%;
+    margin: auto;
+    background: #fff;
+    padding: 20px;
+    box-shadow: 0 0 10px rgba(0, 0, 0, 0.1);
+    margin-top: 20px;
+}
+h1 {
+    text-align: center;
+    color: #007bff;
+}
+.breadcrumb {
+    font-size: 14px;
+    margin-bottom: 20px;
+}
+.breadcrumb a {
+    color: #007bff;
+    text-decoration: none;
+}
+.breadcrumb span {
+    color: #555;
+}
+.step {
+    display: flex;
+    justify-content: space-between;
+    margin-bottom: 20px;
+}
+.step div {
+    text-align: center;
+    flex: 1;
+    position: relative;
+}
+.step div::after {
+    content: '';
+    position: absolute;
+    top: 50%;
+    right: -50%;
+    width: 100%;
+    height: 2px;
+    background: #ccc;
+    z-index: -1;
+}
+.step div:last-child::after {
+    display: none;
+}
+.step div.active {
+    color: #007bff;
+}
+.step div.active::after {
+    background: #007bff;
+}
+.section {
+    margin-bottom: 20px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+    padding: 15px;
+}
+.section h3 {
+    margin-top: 0;
+    color: #007bff;
+}
+.section label {
+    display: block;
+    margin-bottom: 5px;
+}
+.section input, .section select {
+    width: 100%;
+    padding: 8px;
+    margin-bottom: 10px;
+    border: 1px solid #ddd;
+    border-radius: 5px;
+}
+.order-summary {
+    border: 1px solid #ddd;
+    padding: 15px;
+    border-radius: 5px;
+}
+.order-summary img {
+    width: 50px;
+    margin-right: 10px;
+}
+.order-summary table {
+    width: 100%;
+    border-collapse: collapse;
+}
+.order-summary table th, .order-summary table td {
+    text-align: left;
+    padding: 10px;
+    border-bottom: 1px solid #ddd;
+}
+.order-summary .total {
+    font-weight: bold;
+    color: #007bff;
+}
+.btn {
+    display: block;
+    width: 100%;
+    padding: 10px;
+    text-align: center;
+    background: #007bff;
+    color: #fff;
+    border: none;
+    border-radius: 5px;
+    font-size: 16px;
+    cursor: pointer;
+}
+.btn:hover {
+    background: #0056b3;
+}
