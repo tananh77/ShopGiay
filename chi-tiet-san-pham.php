@@ -1,14 +1,13 @@
-<?php session_start(); ?>
 <?php
-require 'db.php';
 
 $id = $_GET['id'];
+require 'db.php';
 $sql = "select * from products where id=$id";
-$result = mysqli_query($conn, $sql);
+$result = mysqli_query($connect, $sql);
 $each = mysqli_fetch_array($result);
 
 $sql = "select url from product_images where product_id=$id limit 4";
-$images = mysqli_query($conn, $sql);
+$images = mysqli_query($connect, $sql);
 
 ?>
 
@@ -45,12 +44,7 @@ $images = mysqli_query($conn, $sql);
             flex: 1;
         }
 
-        .product-image img.main-image {
-            width: 100%;
-            height: auto;
-            border: 1px solid #ddd;
-            border-radius: 5px;
-        }
+       
 
         .thumbnail-images {
             display: flex;
@@ -59,19 +53,19 @@ $images = mysqli_query($conn, $sql);
         }
 
         .thumbnail-images img {
-             max-width: 60px; 
-             max-height: 60px;
-            object-fit: contain; 
+            max-width: 60px;
+            max-height: 60px;
+            object-fit: contain;
             border: 1px solid #ddd;
-             border-radius: 5px;
-             cursor: pointer;
-                transition: transform 0.2s, border-color 0.2s; 
-}
+            border-radius: 5px;
+            cursor: pointer;
+            transition: transform 0.2s, border-color 0.2s;
+        }
 
         .thumbnail-images img:hover {
             border-color: #ff5733;
             transform: scale(1.1);
-}
+        }
 
 
         .product-info {
@@ -198,10 +192,11 @@ $images = mysqli_query($conn, $sql);
     <div class="container">
         <!-- Phần hình ảnh -->
         <div class="product-image-container">
-            <img class="main-image" src="images/<?php echo $each['avatar']; ?>" alt="Main Product Image">
+            <img class="main-image" src="images/<?php echo $each['avatar']; ?>" alt="Main Product Image" style="max-width: 100%; height: auto;">>
             <div class="thumbnail-images">
-                <?php $i=1;  foreach ($images as $img) { ?>
-                    <img src="images/<?php echo $img['url']; ?>" alt="Thumbnail <?php $i++?>">
+                <?php $i = 1;
+                foreach ($images as $img) { ?>
+                    <img src="images/<?php echo $img['url']; ?>" alt="Thumbnail <?php $i++ ?>">
                 <?php } ?>
             </div>
         </div>
@@ -209,7 +204,7 @@ $images = mysqli_query($conn, $sql);
         <!-- Phần thông tin -->
         <div class="product-info">
             <h1 class="product-title"><?php echo $each['name']; ?></h1>
-            <p class="product-price"><?php echo number_format($each['price'], 0, ',', '.'); ?> VND</p>
+            <p class="product-price"><?php echo number_format($each['price'], 2, ',', '.'); ?> USD</p>
             <div class="product-description">
                 <h3>Mô tả sản phẩm:</h3>
                 <p><?php echo $each['description']; ?></p>
@@ -245,13 +240,13 @@ $images = mysqli_query($conn, $sql);
                 $url = 'http://localhost/shopgiay/html/images';
                 require 'db.php';
                 $sql = "select * from products limit 3";
-                $result = mysqli_query($conn, $sql);
+                $result = mysqli_query($connect, $sql);
 
                 foreach ($result as $product) {
                     echo '<div class="product-item">';
                     echo '<img src="' . htmlspecialchars($url . '/' . $product['avatar']) . '" alt="' . htmlspecialchars($product['name']) . '">';
                     echo '<h3>' . htmlspecialchars($product['name']) . '</h3>';
-                    echo '<p>' . number_format($product['price'], 0, ',', '.') . ' VND</p>';
+                    echo '<p>' . number_format($product['price'], 0, ',', '.') . ' USD</p>';
                     echo '<a href="chi-tiet-san-pham.php?id=' . $product['id'] . '" class="add-to-cart">Xem chi tiết</a>';
                     echo '</div>';
                 }
@@ -259,36 +254,28 @@ $images = mysqli_query($conn, $sql);
             </div>
         </div>
     </section>
-
-    <?php require ('cmt.php'); ?>
-
     <?php require('footer.php'); ?>
     <script>
-  
-    // Lấy các phần tử cần thiết
-    const thumbnails = document.querySelectorAll('.thumbnail-images img');
-    const mainImage = document.querySelector('.main-image');
 
-    // Thêm sự kiện click cho mỗi thumbnail
-    thumbnails.forEach(thumbnail => {
-        thumbnail.addEventListener('click', () => {
-            // Lấy đường dẫn ảnh từ thumbnail
-            const newSrc = thumbnail.src;
+   
+        const thumbnails = document.querySelectorAll('.thumbnail-images img');
+        const mainImage = document.querySelector('.main-image');
 
-            // Cập nhật ảnh lớn với đường dẫn mới
-            mainImage.src = newSrc;
+        thumbnails.forEach(thumbnail => {
+            thumbnail.addEventListener('click', () => {
 
-            // Highlight ảnh thumbnail đã chọn
-            thumbnails.forEach(thumb => thumb.style.border = '1px solid #ddd');
-            thumbnail.style.border = '2px solid #ff5733';
+                const newSrc = thumbnail.src;
+
+                mainImage.src = newSrc;
+
+                thumbnails.forEach(thumb => thumb.style.border = '1px solid #ddd');
+                thumbnail.style.border = '2px solid #ff5733';
+            });
         });
-    });
 
 
-</script>
-    
+    </script>
+
 </body>
-
-
 
 </html>

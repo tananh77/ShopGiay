@@ -14,34 +14,34 @@
     <style>
 
 
-/* Phần liên hệ */
+
 .contact-section {
     display: flex;
     flex-wrap: wrap;
     gap: 20px;
-    margin: 10px 0; /* Khoảng cách trên và dưới nhỏ hơn */
+    margin: 10px 0;
     padding: 20px;
-    background-color: #f9f9f9; /* Màu nền nhẹ */
-    border: 1px solid #ddd; /* Viền nhẹ */
+    background-color: #f9f9f9; 
+    border: 1px solid #ddd;/
     border-radius: 10px;
-    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05); /* Đổ bóng nhẹ */
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.05); 
     font-family: Arial, sans-serif;
 }
 
 .contact-info {
-    flex: 1; /* Chiếm 50% chiều rộng */
-    min-width: 250px; /* Đảm bảo không bị quá hẹp */
+    flex: 1; 
+    min-width: 250px; 
 }
 
 .contact-info h2 {
     margin-bottom: 15px;
-    color: #0077ff; /* Màu xanh nổi bật */
-    font-size: 20px; /* Font chữ vừa */
+    color: #0077ff; 
+    font-size: 20px; 
     text-align: center;
 }
 
 .contact-info p {
-    font-size: 14px; /* Font chữ nhỏ hơn */
+    font-size: 14px; 
     line-height: 1.5;
     color: #00EE00;
     display: flex;
@@ -50,15 +50,15 @@
 }
 
 .contact-info i {
-    color: #0077ff; /* Màu icon đồng bộ */
-    font-size: 16px; /* Icon nhỏ hơn */
+    color: #0077ff; 
+    font-size: 16px; 
 }
 
 .contact-info img {
-    width: 100%; /* Chiếm toàn bộ chiều rộng */
+    width: 100%; 
     height: auto;
-    border-radius: 10px; /* Bo góc hình ảnh */
-    margin-bottom: 15px; /* Khoảng cách dưới hình ảnh */
+    border-radius: 10px; 
+    margin-bottom: 15px; 
 }
 
 .banner-text {
@@ -66,54 +66,53 @@
     margin-top: 10px;
 }
 
-/* Phần gửi tin nhắn */
 .contact-form {
-    flex: 1.5; /* Cân đối với phần thông tin liên hệ */
-    min-width: 400px; /* Chiều rộng tối thiểu nhỏ hơn */
+    flex: 1.5; 
+    min-width: 400px; 
     padding: 10px;
-    background-color: #ffffff; /* Màu nền nhẹ */
-    border: 1px solid #ddd; /* Viền mỏng hơn */
-    border-radius: 10px; /* Bo góc nhẹ */
-    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05); /* Đổ bóng nhẹ */
+    background-color: #ffffff; 
+    border: 1px solid #ddd; 
+    border-radius: 10px; 
+    box-shadow: 0 2px 10px rgba(0, 0, 0, 0.05); 
 }
 
 .contact-form h2 {
-    margin-bottom: 20px; /* Khoảng cách gọn */
-    color: #333; /* Màu chữ tối giản */
-    font-size: 18px; /* Font chữ nhỏ gọn */
+    margin-bottom: 20px; 
+    color: #333; 
+    font-size: 18px; 
     font-weight: bold;
-    text-align: center; /* Canh giữa */
+    text-align: center; 
 }
 
 .contact-form form {
     display: flex;
     flex-direction: column;
-    gap: 10px; /* Giảm khoảng cách giữa các trường */
+    gap: 10px;
 }
 
 .contact-form input,
 .contact-form textarea {
     width: 100%;
-    padding: 8px; /* Giảm padding */
-    border: 1px solid #ccc; /* Viền nhẹ nhàng */
+    padding: 8px; 
+    border: 1px solid #ccc; 
     border-radius: 5px;
-    font-size: 14px; /* Font chữ nhỏ hơn */
+    font-size: 14px; 
     color: #555;
-    background-color: #f9f9f9; /* Nền sáng hơn */
+    background-color: #f9f9f9; 
     transition: border-color 0.3s;
 }
 
 .contact-form input:focus,
 .contact-form textarea:focus {
-    border-color: #0077ff; /* Viền nổi bật khi focus */
+    border-color: #0077ff; 
     outline: none;
 }
 
 .contact-form button {
-    padding: 10px; /* Nhỏ gọn */
-    background-color: #0077ff; /* Màu xanh sáng */
+    padding: 10px; 
+    background-color: #0077ff; 
     color: white;
-    font-size: 14px; /* Font chữ nhỏ hơn */
+    font-size: 14px;
     font-weight: bold;
     border: none;
     border-radius: 5px;
@@ -123,24 +122,23 @@
 
 .contact-form button:hover {
     background-color: #005bb5;
-    transform: scale(1.03); /* Hiệu ứng phóng to nhẹ khi hover */
+    transform: scale(1.03); 
 }
 
-/* Phần Google Maps */
 .map-section iframe {
     border-radius: 10px;
     margin-top: 20px;
     box-shadow: 0 4px 10px rgba(0, 0, 0, 0.1);
 }
 
-/* Căn chỉnh khoảng cách */
+
 .container {
     max-width: 1200px;
     margin: 0 auto;
     padding: 0 15px;
 }
 
-/* Hình ảnh banner */
+
 .banner img {
     width: 100%;
     border-radius: 10px;
@@ -150,7 +148,7 @@
 .banner-text h2 {
     margin-top: 20px;
     font-size: 26px;
-    color: #0077ff; /* Chữ sáng màu hơn trong banner */
+    color: #0077ff; 
     text-align: center;
     text-shadow: 1px 1px 2px rgba(255, 255, 255, 0.8);
 }

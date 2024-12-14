@@ -4,8 +4,6 @@ if ($_SERVER['REQUEST_METHOD'] === 'POST') {
     $email = htmlspecialchars($_POST['email']);
     $message = htmlspecialchars($_POST['message']);
 
-    // Xử lý lưu thông tin hoặc gửi email
-    // Ví dụ gửi email:
     $to = 'admin@yourstore.com';
     $subject = "Tin nhắn từ $name";
     $body = "Họ và tên: $name\nEmail: $email\nNội dung: $message";

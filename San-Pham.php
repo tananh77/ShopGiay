@@ -123,7 +123,6 @@
         <div class="container">
             <h2>Sản phẩm</h2>
 
-            <!-- Tùy chọn sắp xếp -->
             <div class="sort-options">
                 <span>Sắp xếp theo:</span>
                 <a href="?sort=name&order=asc">Tên tăng dần</a> |
@@ -136,7 +135,6 @@
                 <?php
                 require 'db.php';
 
-                // Lấy thông tin sắp xếp từ URL
                 $sort_column = isset($_GET['sort']) ? $_GET['sort'] : 'id';
                 $sort_order = isset($_GET['order']) && $_GET['order'] == 'desc' ? 'DESC' : 'ASC';
                 $allowed_columns = ['id', 'name', 'price'];
@@ -144,33 +142,29 @@
                     $sort_column = 'id';
                 }
 
-                // Phân trang
                 $page = isset($_GET['page']) ? (int)$_GET['page'] : 1;
-                $limit = 10; // Số sản phẩm mỗi trang
+                $limit = 10; 
                 $offset = ($page - 1) * $limit;
 
                 // Truy vấn dữ liệu sản phẩm
                 $sql = "SELECT * FROM products ORDER BY $sort_column $sort_order LIMIT $limit OFFSET $offset";
-                $result = mysqli_query($conn, $sql);
+                $result = mysqli_query($connect, $sql);
 
-                // Hiển thị sản phẩm
                 foreach ($result as $product) {
                     echo '<div class="product-item">';
                     echo '<img src="' . htmlspecialchars($url . '/' . $product['avatar']) . '" alt="' . htmlspecialchars($product['name']) . '">';
                     echo '<h3>' . htmlspecialchars($product['name']) . '</h3>';
-                    echo '<p class="product-price">' . number_format($product['price'], 0, ',', '.') . ' VND</p>';
+                    echo '<p class="product-price">' . number_format($product['price'], 2, ',', '.') . ' USD</p>';
                     echo '<a href="chi-tiet-san-pham.php?id=' . $product['id'] . '" class="btn-detail">Xem chi tiết</a>';
                     echo '</div>';
                 }
 
-                // Đếm tổng số sản phẩm
                 $count_result = mysqli_query($connect, "SELECT COUNT(*) AS total FROM products");
                 $total_rows = mysqli_fetch_assoc($count_result)['total'];
                 $total_pages = ceil($total_rows / $limit);
                 ?>
             </div>
 
-            <!-- Liên kết phân trang -->
             <div class="pagination">
                 <?php for ($i = 1; $i <= $total_pages; $i++): ?>
                     <a href="?page=<?php echo $i; ?>&sort=<?php echo $sort_column; ?>&order=<?php echo $sort_order; ?>">
@@ -186,19 +180,19 @@
 </html>
 
     <script>
-        // Lấy tất cả các ảnh sản phẩm
+   
         const thumbnails = document.querySelectorAll('.product-thumbnail');
         const modal = document.getElementById('imageModal');
         const modalImage = document.getElementById('modalImage');
 
         thumbnails.forEach(thumbnail => {
             thumbnail.addEventListener('click', () => {
-                modalImage.src = thumbnail.src; // Đặt ảnh vào modal
-                modal.classList.add('active'); // Hiển thị modal
+                modalImage.src = thumbnail.src; 
+                modal.classList.add('active'); 
             });
         });
 
-        // Đóng modal khi click ra ngoài
+    
         modal.addEventListener('click', () => {
             modal.classList.remove('active');
         });

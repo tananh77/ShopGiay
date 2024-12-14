@@ -41,18 +41,16 @@
             <h2>Sản phẩm nổi bật</h2>
             <div class="product-list">
                 <?php
-               // Truy vấn danh sách sản phẩm từ bảng `sanpham`
-                $sql = "SELECT id, name, price, avatar image FROM product_";
-                $result = $conn->query($sql); 
+                $url = 'http://localhost/shopgiay/html/images';
                 require 'db.php';
-               
+                $sql = "select * from products limit 4";
                 $result = mysqli_query($connect, $sql);
 
                 foreach ($result as $product) {
                     echo '<div class="product-item">';
                     echo '<img src="' . htmlspecialchars($url . '/' . $product['avatar']) . '" alt="' . htmlspecialchars($product['name']) . '">';
                     echo '<h3>' . htmlspecialchars($product['name']) . '</h3>';
-                    echo '<p>' . number_format($product['price'], 0, ',', '.') . ' VND</p>';
+                    echo '<p>' . number_format($product['price'], 0, ',', '.') . ' USD</p>';
                     echo '<a href="chi-tiet-san-pham.php?id=' . $product['id'] . '" class="add-to-cart">Xem chi tiết</a>';
                     echo '</div>';
                 }
@@ -71,8 +69,7 @@
         </div>
     </section>
 
-  
-    <?php require('footer.php') ?>
+  <?php require('footer.php') ?>
+
 </body>
-<?php require('footer.php') ?>
 </html>

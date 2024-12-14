@@ -1,15 +1,11 @@
 <?php
-// Kết nối đến cơ sở dữ liệu
-$servername = "localhost";
-$username = "root";
-$password = "";
-$dbname = "bangiay";
 
-// Tạo kết nối
-$conn = new mysqli($servername, $username, $password, $dbname);
+$connect = mysqli_connect('localhost','root','','shoestore');
+    mysqli_set_charset($connect,'utf8');
 
 // Kiểm tra kết nối
-if ($conn->connect_error) {
-    die("Kết nối thất bại: " . $conn->connect_error);
+if (!$connect) {
+    die("Kết nối thất bại: " . mysqli_connect_error());
+} else {
 }
 ?>
