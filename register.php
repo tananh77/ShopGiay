@@ -24,14 +24,14 @@
         $username = $conn->real_escape_string($_POST["username"]);
         $email = $conn->real_escape_string($_POST["email"]);
         $numbers = $conn->real_escape_string($_POST["numbers"]);
-        $password = password_hash($_POST["password"], PASSWORD_DEFAULT); // Mã hóa mật khẩu
+        $password = $conn->real_escape_string($_POST["password"]);
 
         // Thêm dữ liệu vào bảng nguoidung
         $stmt=$conn->prepare("INSERT INTO nguoidung (user_name, email, numbers, password) VALUES (?, ?, ?, ?)");
         $stmt->bind_param("ssss", $username, $email, $numbers, $password);
 
         if ($stmt->execute() === TRUE) {
-            echo "<p class='thongbao'>Đăng ký thành công!</p>";
+            header("Location: login.php");
         } else {
             echo "<p>Đăng ký thất bại: " . $conn->error . "</p>";
         }
@@ -42,7 +42,21 @@
     ?>
 
     <!-- Header -->
-    <?php require('header.php') ?>
+    <header>
+        <img class="img" src="../img/logo2.png" alt="" style="width: 80px;>
+        <nav>
+            <a href="#">Trang chủ</a>
+            <a href="#">Sản phẩm</a>
+            <a href="#">Liên hệ</a>
+        </nav>
+        <div class="header-icons">
+            <input type="text" placeholder="Tìm kiếm...">
+            <button><i class="fa fa-search"></i></button>
+            <i class="fa fa-user"></i>
+            <i class="fa fa-heart"></i>
+            <i class="fa fa-shopping-cart"></i>
+        </div>
+    </header>
 
     <!-- Register Form -->
     <div class="register-container">
@@ -58,6 +72,15 @@
     </div>
 
     <!-- Footer -->
-    <?php require('footer.php') ?>
+    <footer>
+        <div class="footer-content">
+            <img src="/img/bando.jpg" alt="Map" class="map-image">
+            <div class="contact-info">
+                <p>Địa chỉ: 170 An Dương Vương/ Nguyễn Văn Cừ/Quy Nhơn/Bình Định</p>
+                <p>Email: Familyshop@gmail.com.vn</p>
+                <p>FaceBook: ShopFamily</p>
+            </div>
+        </div>
+    </footer>
 </body>
 </html>
