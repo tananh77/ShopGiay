@@ -8,7 +8,7 @@ $password = ""; // Mật khẩu MySQL
 $dbname = "bangiay"; // Tên cơ sở dữ liệu
 
 // Kết nối đến cơ sở dữ liệu
-$conn = new mysqli($servername, $username, $password, $dbname);
+$conn = new mysqli('localhost:3306', 'root', '', 'bangiay');
 
 // Kiểm tra kết nối
 if ($conn->connect_error) {
@@ -39,13 +39,14 @@ if ($_SERVER["REQUEST_METHOD"] == "POST") { // Kiểm tra xem yêu cầu là t�
         // Kiểm tra mật khẩu bằng phép so sánh trực tiếp
         if ($password == $row['password']) { // So sánh trực tiếp nếu mật khẩu không mã hóa
             $_SESSION['email'] = $email; // Lưu email vào session để giữ trạng thái đăng nhập
-            $_SESSION['user_name'] = $row['user_name'];
-            header("Location: index.php"); // Chuyển hướng đến trang chủ sau khi đăng nhập thành công
+            if ($row['admin'] == 1) {
+                header('location: ADMIN/admin.php');
+            } else {
+                header('location: index.php');
+            }
         } else {
-            header ("Location: index.php");;  // Chuyển hướng đến trang chủ sau khi đăng nhập thành công
+            echo "<p style='color:red;'>Sai Tên Đăng Nhập Hoặc Mật Khẩu!</p>";  // Thông báo nếu mật khẩu hoặc gmail không đúng
         }
-    } else {
-        echo "<p style='color:red;'>Sai Tên Đăng Nhập Hoặc Mật Khẩu!</p>";  // Thông báo nếu mật khẩu hoặc gmail không đúng
     }
 
     // Đóng câu lệnh
@@ -70,7 +71,22 @@ $conn->close();
 </head>
 <body>
     <!-- Header -->
-    <?php require('header.php') ?>
+    <header>
+        <img class="img" src="../img/logo.jpg" alt="" style="width: 80px;">
+        <nav>
+            <a href="demo.php">Trang chủ</a>
+            <a href="#">Sản phẩm</a>
+            <a href="#">Liên hệ</a>
+        </nav>
+        <div class="header-icons">
+            <input type="text" placeholder="Tìm kiếm...">
+            <button><i class="fa fa-search"></i></button>
+            <i class="fa fa-user"></i>
+            <i class="fa fa-heart"></i>
+            <i class="fa fa-shopping-cart"></i>
+        </div>
+    </header>
+
     <!-- Login Form -->
     <div class="register-container">
         <form class="register-form" method="POST" action="">
@@ -83,6 +99,15 @@ $conn->close();
     </div>
 
     <!-- Footer -->
-    <?php require('footer.php') ?>
+    <footer>
+        <div class="footer-content">
+            <img src="/img/bando.jpg" alt="Map" class="map-image">
+            <div class="contact-info">
+                <p>Địa chỉ: 170 An Dương Vương/ Nguyễn Văn Cừ/Quy Nhơn/Bình Định</p>
+                <p>Email: Familyshop@gmail.com.vn</p>
+                <p>FaceBook: ShopFamily</p>
+            </div>
+        </div>
+    </footer>
 </body>
 </html>
